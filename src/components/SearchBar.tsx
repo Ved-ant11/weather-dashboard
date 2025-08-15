@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState, AppDispatch } from "../app/store";
 import { setCity, fetchWeather } from "../features/weather/weatherSlice";
+import { addToHistory } from "../features/weather/weatherSlice";
 import React from "react";
 
 export const SearchBar: React.FC = () => {
@@ -11,6 +12,7 @@ export const SearchBar: React.FC = () => {
     e.preventDefault();
     if (city.trim()) {
       dispatch(fetchWeather(city));
+      dispatch(addToHistory(city));
     }
   };
 

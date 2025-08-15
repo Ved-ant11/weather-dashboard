@@ -7,6 +7,7 @@ interface WeatherState {
   data: any | null;
   loading: boolean;
   error: string | null;
+  history: string[];
 }
 
 const initialState: WeatherState = {
@@ -14,6 +15,7 @@ const initialState: WeatherState = {
   data: null,
   loading: false,
   error: null,
+  history: [],
 };
 
 export const fetchWeather = createAsyncThunk(
@@ -53,6 +55,15 @@ const weatherSlice = createSlice({
     setCity: (state, action: PayloadAction<string>) => {
       state.city = action.payload;
     },
+    addToHistory: (state, action: PayloadAction<string>) => {
+      const lc = action.payload.toLowerCase();
+      if (!state.history.some(h => h.toLowerCase() === lc)) {
+        state.history = [action.payload, ...state.history].slice(0, 10);
+      }
+    },
+    clearHistory: (state) => {
+      state.history = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -71,5 +82,5 @@ const weatherSlice = createSlice({
   },
 });
 
-export const { setCity } = weatherSlice.actions;
+export const { setCity, addToHistory, clearHistory } = weatherSlice.actions;
 export default weatherSlice.reducer;

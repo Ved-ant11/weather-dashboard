@@ -1,5 +1,6 @@
 import { SearchBar } from "./components/SearchBar";
 import { WeatherDisplay } from "./components/WeatherDisplay";
+import { SearchHistory } from "./components/SearchHistory";
 import './index.css';
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
       </div>
       <div className="max-w-2xl mx-auto px-4 mb-6">
         <SearchBar />
+      </div>
+      <div className="max-w-2xl mx-auto px-4">
+        <SearchHistory />
       </div>
       <div className="flex flex-col items-center justify-center flex-1 gap-4">
         <WeatherDisplay />
