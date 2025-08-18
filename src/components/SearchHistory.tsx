@@ -10,7 +10,7 @@ export const SearchHistory: React.FC = () => {
   if (history.length === 0) return null;
 
   return (
-    <div className="bg-zinc-900 rounded-lg p-4 mt-4 w-full max-w-md shadow-lg">
+    <div className="bg-zinc-900 rounded-lg p-4 mt-4 w-full max-w-md shadow-lg mb-5">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-white font-semibold">Recent Searches</h3>
         <button

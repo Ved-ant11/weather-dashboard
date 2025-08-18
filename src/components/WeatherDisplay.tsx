@@ -70,7 +70,7 @@ export const WeatherDisplay = () => {
         <WiBarometer size={24} />
         Pressure: {data.main.pressure} {data.main.pressure_unit}
       </p>
-
+            
       {summary && <p className="mb-2">Summary: {summary}</p>}
     </div>
   );
