@@ -1,38 +1,33 @@
 import { SearchBar } from "./components/SearchBar";
 import { WeatherDisplay } from "./components/WeatherDisplay";
 import { SearchHistory } from "./components/SearchHistory";
-import './index.css';
+import "./index.css";
 
 function App() {
   return (
-    <div className="bg-zinc-900 min-h-screen w-full flex flex-col">
-      <header className="pt-6 pb-4">
-        <h1 className="text-5xl font-bold text-white text-center">
+    <div className="min-h-screen w-full flex flex-col bg-zinc-900">
+      <header className="pt-6 pb-4 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold text-white">
           Weather <span className="text-cyan-600">Dashboard</span>
         </h1>
+        <p className="text-white mt-2 text-base md:text-lg">
+          Search for the current{" "}
+          <span className="text-yellow-200">weather</span> in any city around
+          the world.
+        </p>
+        <p className="text-white mt-2 text-base md:text-lg">
+          Enter city name and country code (e.g.{" "}
+          <span className="font-semibold">Delhi,IN</span>)
+        </p>
       </header>
-      <div className="max-w-2xl mx-auto px-4">
-        <p className="text-white text-center mb-6">
-          Search for the current <span className="text-yellow-200">weather</span> in any city around the
-          world.
-        </p>
-      </div>
-      <div className="max-w-2xl mx-auto px-4">
-        <p className="text-white text-center mb-6">
-          Enter city name and country code (e.g. Delhi,IN) to get the weather
-          details.
-        </p>
-      </div>
-      <div className="max-w-2xl mx-auto px-4 mb-6">
-        <SearchBar />
-      </div>
-      <div className="max-w-2xl mx-auto px-4">
-        <SearchHistory />
-      </div>
-      <div className="flex flex-col items-center justify-center flex-1 gap-4">
-        <WeatherDisplay />
-      </div>
-      <footer className="text-center text-white py-4">
+      <main className="flex-1 flex flex-col items-center px-2">
+        <div className="w-full max-w-xl">
+          <SearchBar />
+          <SearchHistory />
+          <WeatherDisplay />
+        </div>
+      </main>
+      <footer className="text-center text-white py-4 text-sm md:text-base">
         <p>
           Made By{" "}
           <a

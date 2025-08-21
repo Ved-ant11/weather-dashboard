@@ -1,7 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState, AppDispatch } from "../app/store";
-import { setCity, fetchWeather } from "../features/weather/weatherSlice";
-import { addToHistory } from "../features/weather/weatherSlice";
+import {
+  setCity,
+  fetchWeather,
+  addToHistory,
+} from "../features/weather/weatherSlice";
 import React from "react";
 
 export const SearchBar: React.FC = () => {
@@ -17,17 +20,25 @@ export const SearchBar: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center justify-center gap-2 text-white bg-zinc-700 p-4 rounded gap-4 w-500 max-w-md hover:bg-zinc-600 transition-colors duration-300">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col md:flex-row items-center gap-2 w-full mb-4"
+    >
       <input
         type="text"
         placeholder="Enter city,countryCode (e.g. Delhi,IN)"
         value={city}
         onChange={(e) => dispatch(setCity(e.target.value))}
-        className="flex-1 p-2 rounded bg-zinc-800 text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent border border-transparent w-full max-w-md"
+        className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base text-white placeholder-gray-400 transition-colors duration-300"
         required
         autoFocus
       />
-      <button type="submit" className="bg-zinc-500 hover:bg-red-600 transition-colors duration-300 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500">Search</button>
+      <button
+        type="submit"
+        className="w-full md:w-auto bg-zinc-500 hover:bg-red-600 transition-colors duration-300 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm md:text-base"
+      >
+        Search
+      </button>
     </form>
   );
 };
